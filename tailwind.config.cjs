@@ -572,6 +572,10 @@ module.exports = {
           transform: 'rotate(360deg)',
         },
       },
+      "caret-blink": {
+        "0%,70%,100%": { opacity: "1" },
+        "20%,50%": { opacity: "0" },
+      },
       ping: {
         '75%, 100%': {
           transform: 'scale(2)',
@@ -593,6 +597,9 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+    },
+    animation:{
+      "caret-blink": "caret-blink 1.25s ease-out infinite",
     },
     letterSpacing: {
       tighter: '-0.05em',

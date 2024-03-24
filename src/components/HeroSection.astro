@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro"
-
+import RegisterButton from './registerBtn'
 ---
 
 <div class="relative" id="home">
@@ -14,14 +14,7 @@ import Container from "./Container.astro"
                 <h1 class="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">Find Skilled Workers at Your <span class="text-primary dark:text-white">Fingertips </span></h1>
                 <p class="mt-8 text-gray-700 dark:text-gray-300">Introducing Mera Rojgar Mera Adhikar - the solution for hiring reliable daily wage workers. Our platform connects nearby workers to daily wage work opportunities, making it easy to find the help you need. With extensive worker profiles, competitive pricing, and a user-friendly interface, our platform provides an easy booking process to get the work done. We have a dedicated customer support team and a large pool of workers, making it easy to find the help you need, whether it's short-term or long-term. Sign up today and start hiring!</p>
                 <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
-                    <a
-                      href="#"
-                      class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                    >
-                      <span class="relative text-base font-semibold text-white"
-                        >Register Now</span
-                      >
-                    </a>
+                    <RegisterButton client:load></RegisterButton>
                     <a
                       href="#"
                       class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
@@ -52,19 +45,19 @@ import Container from "./Container.astro"
                     <img src="./images/aktu.png" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
                   </div>
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/bncet.png" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
+                  <img src="./images/bncet.png" class="h-14 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
                 </div>
                 <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                  <img src="./images/ind-st.png" class="h-12 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
+                  <img src="./images/ind-st.png" class="h-14 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
                 </div>
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/msme.png" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/msme-logo.png" class="h-14 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
                   </div>
                   <div class="p-4 flex grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/nnf.png" class="h-12 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/ietLogo.png" class="h-14 w-auto m-auto" loading="lazy" alt="client logo" width="" height="" />
                   </div>
                 <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-                    <img src="./images/up-start.png" class="h-12 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
+                    <img src="./images/up-start.png" class="h-14 w-auto mx-auto" loading="lazy" alt="client logo" width="" height="" />
                 </div>
               </div>
         </div>
