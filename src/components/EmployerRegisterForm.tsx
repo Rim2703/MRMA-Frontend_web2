@@ -82,9 +82,12 @@ export default function EmployerRegisterForm () {
     })
     const data = await response.json();
     console.log(data)
+    console.log(response.ok)
 
     if(response.ok){
+      console.log("ok!")
         success();
+        toggleotpvisibility();
     }
    }
    catch(err){
@@ -93,12 +96,15 @@ export default function EmployerRegisterForm () {
    }
       
   }
+  async function OTP(){
+    console.log('clicked')
+  }
 
   return (
     
     
    <Card className="md:p-16 px-4 py-8 mx-auto my-2 md:w-2/3 w-full bg-gray-800 flex flex-col justify-center items-center "> 
-   {(showOTP)?<Card className="bg-slate-900 p-8 flex flex-col justify-center items-center text-white fixed bottom-[50vh]"><CardTitle>Input OTP</CardTitle><CardDescription className="my-2">OTP has been sent to your registered mobile number.</CardDescription><InputOTPForm></InputOTPForm><Button className="w-full my-4">Submit</Button></Card>
+   {(showOTP)?<Card className="bg-slate-900 p-8 flex flex-col justify-center items-center text-white fixed bottom-[50vh]"><CardTitle>Input OTP</CardTitle><CardDescription className="my-2">OTP has been sent to your registered mobile number.</CardDescription><InputOTPForm></InputOTPForm><Button className="w-full my-4" onClick={OTP}>Submit</Button></Card>
    :<div></div>}
    <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className=" w-full">

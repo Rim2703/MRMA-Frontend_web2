@@ -1,9 +1,10 @@
 ---
 import Container from "./Container.astro";
+import RegisterButton from "./registerBtn";
 ---
 
 <header>
-    <div class="w-full bg-primary h-12 text-white flex justify-end items-center px-8">Contact: Email: </div>
+    <div class="w-full bg-primary h-12 text-white flex justify-end items-center px-8 gap-4"><span>9743986552</span> <span>support@rpp.com</span> </div>
     <nav class="z-10 w-full ">
         <Container>
             <div class="flex flex-wrap items-center justify-between py-2 gap-6 md:py-4 md:gap-0 relative">
@@ -20,7 +21,7 @@ import Container from "./Container.astro";
                         </label>
                     </div>
                 </div>
-                <div aria-hidden="true" class="fixed z-10 inset-0 h-screen w-screen bg-white/70 backdrop-blur-2xl origin-bottom scale-y-0 transition duration-500 peer-checked:origin-top peer-checked:scale-y-100 lg:hidden dark:bg-gray-900/70"></div>
+                <div id="navbar"  class="fixed z-10 inset-0 h-screen w-screen bg-white/70 backdrop-blur-2xl origin-bottom scale-y-0 transition duration-500 peer-checked:origin-top peer-checked:scale-y-100 lg:hidden dark:bg-gray-900/70"></div>
                 <div class="flex-col z-20 flex-wrap gap-6 p-8 rounded-3xl border border-gray-100 bg-white shadow-2xl shadow-gray-600/10 justify-end w-full invisible opacity-0 translate-y-1  absolute top-full left-0 transition-all duration-300 scale-95 origin-top 
                             lg:relative lg:scale-100 lg:peer-checked:translate-y-0 lg:translate-y-0 lg:flex lg:flex-row lg:items-center lg:gap-0 lg:p-0 lg:bg-transparent lg:w-7/12 lg:visible lg:opacity-100 lg:border-none
                             peer-checked:scale-100 peer-checked:opacity-100 peer-checked:visible lg:shadow-none 
@@ -52,14 +53,7 @@ import Container from "./Container.astro";
                     </div>
 
                     <div class="mt-12 lg:mt-0">
-                        <a
-                            href="#"
-                            class="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-                            >
-                            <span class="relative text-sm font-semibold text-white"
-                                >Register Now </span
-                            >
-                        </a>
+                        <RegisterButton client:load></RegisterButton>
                     </div>
                 </div>
             </div>
@@ -78,3 +72,17 @@ import Container from "./Container.astro";
         @apply -rotate-45 -translate-y-1
     }
 </style>
+<script>
+    import {isOpen} from '../../src/stores.js'
+    function openNav() {
+    isOpen.set(true);
+  }
+  document.getElementById('navbar').addEventListener('click', openNav);
+  isOpen.subscribe(open => {
+    if (open) {
+      document.getElementById('navbar').style.display = 'block';
+    } else {
+      document.getElementById('navbar').style.display = 'none';
+    }
+  })
+</script>

@@ -41,10 +41,10 @@ const formSchema = z.object({
   gender: z.string(),
   company: z.string(),
   photo: z.string(),
-  aadhar: z.string(),
+  aadharCard: z.string(),
   labourCard: z.string(),
   userRole: z.string(),
-  category: z.string(),
+  categoriesOfWork: z.string(),
 });
 
 export default function WorkerRegisterForm () {
@@ -68,10 +68,10 @@ export default function WorkerRegisterForm () {
       },
       mobileNumber: "",
       photo: "",
-      aadhar:"",
+      aadharCard:"",
       labourCard:"",
       company:"",
-      category:"",
+      categoriesOfWork:"",
       userRole:"worker"
     },
   });
@@ -87,9 +87,9 @@ export default function WorkerRegisterForm () {
         body: JSON.stringify(payload),
     })
     const data = await response.json();
-    console.log(data)
+    console.log(data.message)
 
-    if(response.ok){
+    if(data){
         success();
         toggleotpvisibility();
     }
@@ -329,7 +329,7 @@ export default function WorkerRegisterForm () {
         />
         <FormField
           control={form.control}
-          name="aadhar"
+          name="aadharCard"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Aadhar Card</FormLabel>
@@ -365,7 +365,7 @@ export default function WorkerRegisterForm () {
         />
          <FormField
           control={form.control}
-          name="category"
+          name="categoriesOfWork"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Category of Work</FormLabel>
