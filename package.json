@@ -25,12 +25,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
-<<<<<<< HEAD
     "astro": "^1.1.5",
     "astrojs": "^0.1.3",
-=======
-    "astro": "^4.5.9",
->>>>>>> d6eb55d7782080e9c8fab5c899e4d186216b71fb
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
