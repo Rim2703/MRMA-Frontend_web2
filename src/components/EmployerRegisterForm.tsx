@@ -45,7 +45,7 @@ const formSchema = z.object({
 });
 
 export default function EmployerRegisterForm () {
-    const [showOTP,setShowOTP] = useState(true)
+    const [showOTP,setShowOTP] = useState(false)
     function toggleotpvisibility(){
         setShowOTP(true)
     }

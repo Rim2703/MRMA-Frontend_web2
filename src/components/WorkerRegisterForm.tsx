@@ -363,6 +363,14 @@ export default function WorkerRegisterForm () {
             </FormItem>
           )}
         />
+
+{/* Construction Workers
+Household Helpers
+Factory Workers
+Farm Laborers
+Transportation Workers
+Skilled Workers
+Service workers */}
          <FormField
           control={form.control}
           name="categoriesOfWork"
@@ -376,10 +384,13 @@ export default function WorkerRegisterForm () {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent className="bg-white">
-                  <SelectItem value="Male">Male</SelectItem>
-                  <SelectItem value="Female">Female</SelectItem>
-                  <SelectItem value="Non-Binary">Non-Binary</SelectItem>
-                  <SelectItem value="Rather Not Say">Rather not say</SelectItem>
+                  <SelectItem value="Construction Worker">Construction Worker</SelectItem>
+                  <SelectItem value="Household Helper">Household Helper</SelectItem>
+                  <SelectItem value="Factory Workers">Factory Workers</SelectItem>
+                  <SelectItem value="Farm Laborers">Farm Laborers</SelectItem>
+                  <SelectItem value="Transportation Worker">Transportation Worker</SelectItem>
+                  <SelectItem value="Skilled Workers">Skilled Workers</SelectItem>
+                  <SelectItem value="Service workers">Service workers</SelectItem>
                 </SelectContent>
               </Select>
               
