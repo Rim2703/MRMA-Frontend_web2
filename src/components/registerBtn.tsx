@@ -19,10 +19,10 @@ export default function RegisterButton() {
   return (
     <Dialog>
       <DialogTrigger asChild >
-      <div className="mt-12 lg:mt-0">
+      <div className="lg:mt-0 w-full md:w-auto flex justify-center items-center">
                         <a
                             href="#"
-                            className="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+                            className="relative flex h-12 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
                             >
                             <span className="relative text-sm font-semibold text-white"
                                 >Register Now </span>

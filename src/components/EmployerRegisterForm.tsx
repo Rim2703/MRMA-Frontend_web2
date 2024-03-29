@@ -17,20 +17,23 @@ import { Input } from "./ui/input"
 import { InputOTPForm } from "./input-otpForm";
 import { Card, CardDescription, CardFooter, CardTitle } from "./ui/card";
 import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from "./ui/select";
-import { Calendar } from "./ui/calender";
+import { Calendar } from "react-calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 import { format } from "date-fns";
 import { cn } from "../../lib/utils";
+import 'react-calendar/dist/Calendar.css';
 
 
 const success = () => toast.success("Form Submitted Successfully! Please check your mobile number for OTP");
 const error = () => toast.error("Error Registering User")
-
+const phoneRegex = new RegExp(
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
 const formSchema = z.object({
   email:z.string(),
   name: z.string(),
-  mobileNumber: z.string(),
+  mobileNumber: z.string().regex(phoneRegex,'Invalid Number!'),
   address:z.object({
     street: z.string(),
     city: z.string(),
@@ -138,32 +141,29 @@ export default function EmployerRegisterForm () {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-full pl-3 text-left font-normal bg-gray-300 h-12",
+                        "w-full text-left font-normal bg-gray-500 ",
                         !field.value && "text-muted-foreground"
                       )}
                     >
                       {field.value ? (
                         format(field.value, "PPP")
                       ) : (
-                        <span>Date Of Birth</span>
+                        <span>Pick a date</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent className="w-auto p-0 bg-white" align="start">
                   <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
+                   onChange={field.onChange}
+                   
                   />
                 </PopoverContent>
               </Popover>
-              
+              <FormDescription>
+                Your date of birth is used to calculate your age.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}

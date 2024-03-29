@@ -17,11 +17,12 @@ import { Input } from "./ui/input"
 import { InputOTPForm } from "./input-otpForm";
 import { Card, CardDescription, CardFooter, CardTitle } from "./ui/card";
 import { Select, SelectItem, SelectTrigger, SelectValue, SelectContent } from "./ui/select";
-import { Calendar } from "./ui/calender";
+import Calendar from "react-calendar";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 import { format } from "date-fns";
 import { cn } from "../../lib/utils";
+import 'react-calendar/dist/Calendar.css';
 
 
 const success = () => toast.success("Form Submitted Successfully! Please check your mobile number for OTP");
@@ -72,7 +73,7 @@ export default function WorkerRegisterForm () {
       labourCard:"",
       company:"",
       categoriesOfWork:"",
-      userRole:"worker"
+      userRole:""
     },
   });
   // 2. Define a submit handler.
@@ -139,32 +140,26 @@ export default function WorkerRegisterForm () {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-full pl-3 text-left font-normal bg-gray-300 h-12",
+                        "w-full text-left font-normal bg-gray-400 ",
                         !field.value && "text-muted-foreground"
                       )}
                     >
                       {field.value ? (
                         format(field.value, "PPP")
                       ) : (
-                        <span>Date Of Birth</span>
+                        <span>Pick a date</span>
                       )}
                       <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto p-0" align="start">
+                <PopoverContent className="w-auto p-0 bg-white" align="start">
                   <Calendar
-                    mode="single"
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
+                   onChange={field.onChange}
+                   
                   />
                 </PopoverContent>
               </Popover>
-              
               <FormMessage />
             </FormItem>
           )}
@@ -186,6 +181,27 @@ export default function WorkerRegisterForm () {
                   <SelectItem value="Female">Female</SelectItem>
                   <SelectItem value="Non-Binary">Non-Binary</SelectItem>
                   <SelectItem value="Rather Not Say">Rather not say</SelectItem>
+                </SelectContent>
+              </Select>
+              
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="userRole"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>User Role</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger className="w-full bg-gray-300 h-12">
+                    <SelectValue placeholder="" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent className="bg-white">
+                  <SelectItem value="Worker">Worker</SelectItem>
+                  <SelectItem value="Contractor">Contractor</SelectItem>
                 </SelectContent>
               </Select>
               
