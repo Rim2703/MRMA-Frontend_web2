@@ -1,10 +1,12 @@
 ---
 import Container from "./Container.astro";
 import RegisterButton from "./registerBtn";
+import { PhoneCallIcon } from "lucide-react";
+import { MailIcon } from "lucide-react";
 ---
 
 <header>
-    <div class="w-full bg-primary h-12 text-white flex justify-end items-center px-8 gap-4"><span>9743986552</span> <span>support@rpp.com</span> </div>
+    <div class="w-full bg-primary h-12 text-white flex justify-end items-center px-8"><PhoneCallIcon className="h-4"></PhoneCallIcon> <span class="mr-4" >9743986552</span><MailIcon className="h-4"></MailIcon> <span>support@rpp.com</span> </div>
     <nav class=" w-full ">
         <Container>
             <div class="flex flex-wrap items-center justify-between py-2 gap-6 md:py-4 md:gap-0 relative">

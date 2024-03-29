@@ -161,9 +161,7 @@ export default function EmployerRegisterForm () {
                   />
                 </PopoverContent>
               </Popover>
-              <FormDescription>
-                Your date of birth is used to calculate your age.
-              </FormDescription>
+             
               <FormMessage />
             </FormItem>
           )}
