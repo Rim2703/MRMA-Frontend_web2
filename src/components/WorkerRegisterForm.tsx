@@ -27,16 +27,18 @@ import 'react-calendar/dist/Calendar.css';
 
 const success = () => toast.success("Form Submitted Successfully! Please check your mobile number for OTP");
 const error = () => toast.error("Error Registering User")
-
+const phoneRegex = new RegExp(
+  /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
+);
 const formSchema = z.object({
-  email:z.string(),
+  email:z.string().email({message:"Invalid email! "}),
   name: z.string(),
-  mobileNumber: z.string(),
+  mobileNumber: z.string().regex(phoneRegex,{message:'Invalid Number!'}),
   address:z.object({
     street: z.string(),
     city: z.string(),
     state: z.string(),
-    pincode: z.string(),
+    pincode: z.string().regex(/^\d+$/, { message: 'Pin code must contain only digits' }),
   }),
   dob: z.date(),
   gender: z.string(),
@@ -254,6 +256,7 @@ export default function WorkerRegisterForm () {
                 placeholder=""
                 {...field}
                 className="m-0"
+                inputMode="numeric"
               />
             </FormControl>
             <FormMessage />

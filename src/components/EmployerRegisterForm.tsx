@@ -31,14 +31,14 @@ const phoneRegex = new RegExp(
   /^([+]?[\s0-9]+)?(\d{3}|[(]?[0-9]+[)])?([-]?[\s]?[0-9])+$/
 );
 const formSchema = z.object({
-  email:z.string(),
+  email:z.string().email({message:"invalid email"}),
   name: z.string(),
   mobileNumber: z.string().regex(phoneRegex,'Invalid Number!'),
   address:z.object({
     street: z.string(),
     city: z.string(),
     state: z.string(),
-    pincode: z.string(),
+    pincode: z.string().regex(/^\d+$/, { message: 'Pin code must contain only digits' }),
   }),
   dob: z.date(),
   gender: z.string(),
